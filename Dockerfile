@@ -40,7 +40,7 @@ RUN ./install.rb
 
 RUN sed -i 's/peer/trust/' /etc/postgresql/9.4/main/pg_hba.conf
 RUN sed -i 's/md5/trust/' /etc/postgresql/9.4/main/pg_hba.conf
-RUN sed -i 's/127.0.0.1/192.168.99.1/' /etc/postgresql/9.4/main/pg_hba.conf
+RUN sed -i 's/127.0.0.1\/32/0.0.0.0\/0/' /etc/postgresql/9.4/main/pg_hba.conf
 RUN cat /etc/postgresql/9.4/main/pg_hba.conf
 
 RUN cat "/etc/init.d/postgresql"
