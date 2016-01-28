@@ -13,7 +13,7 @@ create table subscriptions (
 );
 
 select audit.setup('public', 'subscriptions');
-create unique index subscriptions_lower_email_un_idx on subscriptions(lower(email)) where deleted_at is null;
+create unique index subscriptions_lower_email_un_idx on subscriptions(lower(email));
 
 comment on table subscriptions is '
   Keeps track of which publications a user has signed up for. If a

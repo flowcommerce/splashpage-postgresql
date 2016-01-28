@@ -26,8 +26,8 @@ create table emails (
 );
 
 select audit.setup('public', 'emails');
-create unique index emails_lower_email_un_idx on emails(lower(email)) where deleted_at is null;
-create unique index emails_user_id_primary_un_idx on emails(user_id) where deleted_at is null and is_primary;
+create unique index emails_lower_email_un_idx on emails(lower(email));
+create unique index emails_user_id_primary_un_idx on emails(user_id) where is_primary;
 create index on emails(user_id);
 
 comment on table emails is '
@@ -38,12 +38,11 @@ comment on table emails is '
 create table tokens (
   id                       text not null primary key,
   user_id                  text not null references users,
-  token                    text not null check (util.non_empty_trimmed_string(token)),
+  token                    text not null unique check (util.non_empty_trimmed_string(token)),
   description              text
 );
 
 select audit.setup('public', 'tokens');
-create unique index tokens_token_un_idx on tokens(token) where deleted_at is null;
 create index on tokens(user_id);
 
 comment on table tokens is '
