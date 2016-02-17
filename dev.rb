@@ -6,7 +6,7 @@
 #
 
 Dir.chdir(File.dirname($0)) {
-  command = "sem-apply --url postgresql://api@localhost/splashpage"
+  command = "sem-apply --url postgresql://api@localhost/splashpagedb"
   puts command
   exec(command)
 }
