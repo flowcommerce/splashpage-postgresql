@@ -1,0 +1,1 @@
+alter table subscriptions drop constraint subscriptions_country_check;
