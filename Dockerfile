@@ -1,4 +1,4 @@
-FROM flowdocker/postgresql:0.0.60
+FROM flowdocker/postgresql:0.1.63
 
 ADD . /opt/schema
 WORKDIR /opt/schema
