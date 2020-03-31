@@ -11,4 +11,4 @@ RUN echo "service postgresql stop" >> /opt/run.sh
 RUN sh /opt/run.sh
 
 USER "postgres"
-CMD ["/usr/lib/postgresql/9.5/bin/postgres", "-i", "-D", "/var/lib/postgresql/9.5/main"]
+CMD ["/usr/lib/postgresql/11/bin/postgres", "-i", "-D", "/var/lib/postgresql/11/main"]
